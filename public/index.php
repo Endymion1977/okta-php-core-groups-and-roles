@@ -23,6 +23,8 @@ if (isset($_GET['code'])) {
     $result = $oktaApi->authorizeUser();
     if (isset($result['error'])) {
         $data['loginError'] = $result['errorMessage'];
+    } else {
+       header('Location: /');
     }
 }
 

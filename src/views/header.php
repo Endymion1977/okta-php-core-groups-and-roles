@@ -17,9 +17,23 @@
                     if (isset($_SESSION['username'])) {
                 ?>
                         <p>
-                            Logged in as <?php echo $_SESSION['username'] ?>
+                            Logged in as <?php echo $_SESSION['username'] ?> (id: <?php echo $_SESSION['id'];?>)
                         </p>
-                        <p><a href="/?logout">Log Out</a></p>
+                        <p>
+                            Groups: <?php
+                                foreach($_SESSION['groups'] as $id => $name) {
+                                    echo "<br>". $name;
+                                }
+                            ?>
+                        </p>
+                        <p>
+                            Roles: <?php
+                                foreach($_SESSION['roles'] as $id => $name) {
+                                    echo "<br>". $name;
+                                }
+                            ?>
+                        </p>
+                        <p><a href="/?super">Super Admin Only</a> | <a href="/?admin">Admins</a> | <a href="/?logout">Log Out</a></p>
                 <?php 
                     } else {
                 ?>
